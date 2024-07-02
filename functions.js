@@ -57,10 +57,11 @@ function placeWords(array, word) {
     }
 }
 
-function genArray() {
-    var array = new Array(20);
+function genArray(size) {
+    var array = new Array(size);
     for (let i = 0; i < array.length; i++) {
-        array[i] = new Array(20);
+        array[i] = new Array(size);
+        
     }
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array[i].length; j++) {
@@ -80,16 +81,17 @@ function fill(array) {
     }
 }
 
-function submitForm() {
+function submitForm() { 
     document.getElementById('submit').onclick = function(){
         var words = document.getElementById('words').value;
-        main(words);
+        var size = document.getElementById('size').value;
+        main(words, Number(size));
     }
 }
 
-function main(words) {
+function main(words, size) {
     words = words.toUpperCase().split(" ");
-    var array = genArray();
+    const array = genArray(size);
     for (word of words) {
         placeWords(array, word);
     }
