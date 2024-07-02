@@ -41,8 +41,9 @@ function placeWords(array, word) {
     var randX = rng(array.length);
     var randY = rng(array.length);
     if (checkCoords(randX, randY, direction, word, array)) {
+        /* DEBUG MESSAGES
         console.log(word, randX, randY, direction);
-        console.log('APPROVED.');
+        console.log('APPROVED.'); */
 
         for (let i = 0; i < word.length; i++) {
             var nextX = applyOperator(direction[0], randX, i);
@@ -51,8 +52,9 @@ function placeWords(array, word) {
         }
     }
     else {
+        /*  DEBUG MESSAGES
         console.log(word, randX, randY, direction);
-        console.log('INVALID, TRYING AGAIN.');
+        console.log('INVALID, TRYING AGAIN.'); */
         placeWords(array, word);
     }
 }
@@ -92,6 +94,7 @@ function submitForm() {
 function main(words, size) {
     words = words.toUpperCase().split(" ");
     const array = genArray(size);
+    
     for (word of words) {
         placeWords(array, word);
     }
@@ -106,6 +109,7 @@ function main(words, size) {
         searchContainer.append(newElement);
         
     }
+    
     searchContainer.classList.add("container")
     document.body.appendChild(searchContainer);
 
