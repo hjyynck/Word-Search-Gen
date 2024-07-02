@@ -38,8 +38,8 @@ function checkCoords(x, y, direction, word, array) {
 
 function placeWords(array, word) {
     var direction = randomDir();
-    randX = rng(array.length);
-    randY = rng(array.length);
+    var randX = rng(array.length);
+    var randY = rng(array.length);
     if (checkCoords(randX, randY, direction, word, array)) {
         console.log(word, randX, randY, direction);
         console.log('APPROVED.');
@@ -114,3 +114,5 @@ function main(words, size) {
     footerElement.append(words.join(" "))
     document.body.appendChild(footerElement);
 }
+
+submitForm();
